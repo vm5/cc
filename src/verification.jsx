@@ -132,13 +132,18 @@ const PageContainer = styled.div`
 
 const HeaderSection = styled.div`
   display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   max-width: 1200px;
   margin-bottom: 40px;
-  gap: 20px; /* Added gap between text and image */
+  gap: 20px;
   animation: ${fadeIn} 1s ease-out;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+  }
 `;
 
 const TextContainer = styled.div`
@@ -146,6 +151,11 @@ const TextContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  text-align: center;
+
+  @media (min-width: 768px) {
+    text-align: left;
+  }
 `;
 
 const TitleContainer = styled.div`
@@ -154,11 +164,15 @@ const TitleContainer = styled.div`
 
 const MainTitle = styled.h1`
   color: #222;
-  font-size: 3rem;
+  font-size: 2rem;
   font-family: 'Verdana';
-  margin: 40px;
+  margin: 20px;
   font-weight: bold;
   animation: ${slideIn} 1s ease-out;
+
+  @media (min-width: 768px) {
+    font-size: 3rem;
+  }
 `;
 
 const HighlightedText = styled.span`
@@ -168,18 +182,27 @@ const HighlightedText = styled.span`
 
 const Subtitle = styled.h2`
   color: #555;
-  font-size: 1.8rem;
+  font-size: 1.2rem;
   font-weight: 400;
   margin: 0;
   margin-top: 10px;
   font-family: 'Verdana';
+
+  @media (min-width: 768px) {
+    font-size: 1.8rem;
+  }
 `;
 
 const HeaderImage = styled.img`
   width: 100%;
-  max-width: 500px;
+  max-width: 380px;
   height: auto;
   margin-top: 20px;
+
+  @media (min-width: 768px) {
+    width: 50%;
+    margin-top: 0;
+  }
 `;
 
 const DescriptionWrapper = styled.div`
@@ -202,13 +225,13 @@ const DescriptionBox = styled.div`
 
 const Description = styled.p`
   text-align: center;
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: #333;
   font-family: 'Verdana';
   line-height: 1.6;
 
-  @media (max-width: 480px) {
-    font-size: 1rem;
+  @media (min-width: 480px) {
+    font-size: 1.2rem;
   }
 `;
 
@@ -217,7 +240,7 @@ const SilverContainer = styled.div`
   justify-content: center;
   width: 100%;
   padding: 20px;
-  background-color: #f5f5f5; /* Silver background */
+  background-color: #f5f5f5;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 `;
@@ -232,131 +255,115 @@ const VerificationWrapper = styled.div`
 `;
 
 const VerificationContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background: #ffffff;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-  animation: ${fadeIn} 1s ease-in-out;
   width: 100%;
-  max-width: 800px;
-  box-sizing: border-box;
-
-  @media (max-width: 768px) {
-    padding: 10px;
-  }
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  animation: ${fadeIn} 1.5s ease-out;
 `;
 
 const SectionTitle = styled.h2`
-  font-size: 2rem;
-  color: #222;
-  font-weight: 600;
+  font-size: 1.5rem;
+  color: #333;
   margin-bottom: 10px;
-  animation: ${slideIn} 1s ease-in-out;
-`;
-
-const SectionDescription = styled.p`
-  font-size: 1.2rem;
-  color: #777;
-  margin-bottom: 20px;
   text-align: center;
 `;
 
-const Input = styled.input`
+const SectionDescription = styled.p`
   font-size: 1rem;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  width: 100%;
-  max-width: 500px;
+  color: #666;
+  text-align: center;
   margin-bottom: 20px;
-  outline: none;
-  transition: border-color 0.3s ease;
+`;
 
-  &:focus {
-    border-color: #6a1b9a;
-  }
+const Input = styled.input`
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
 `;
 
 const Button = styled.button`
   background: #6a1b9a;
   color: white;
-  padding: 10px 20px;
   border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
   border-radius: 8px;
-  font-size: 1.1rem;
   cursor: pointer;
   transition: background 0.3s ease;
 
   &:hover {
-    background: #5a0a8d;
+    background: #4a0072;
   }
 `;
 
-const FAQSection = styled.div`
+const FAQSection = styled.section`
   width: 100%;
-  max-width: 1200px;
-  margin-top: 40px;
-  animation: ${fadeIn} 1s ease-in;
+  padding: 20px;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 `;
 
 const FAQTitle = styled.h2`
-  font-size: 2.5rem;
-  font-weight: bold;
-  color: #222;
+  text-align: center;
+  font-size: 1.5rem;
+  color: #333;
   margin-bottom: 20px;
 `;
 
 const FAQContainer = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 15px;
 `;
 
 const FAQBox = styled.div`
-  background: #fff;
+  background: white;
   padding: 15px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  animation: ${fadeIn} 1.5s ease-in;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 `;
 
 const Question = styled.h3`
-  font-size: 1.5rem;
-  color: #444;
-  margin-bottom: 10px;
+  font-size: 1.2rem;
+  color: #333;
+  margin: 0;
 `;
 
 const Answer = styled.p`
-  font-size: 1.2rem;
-  color: #666;
+  font-size: 1rem;
+  color: #555;
+  margin: 10px 0 0;
 `;
 
 const LoadingOverlay = styled.div`
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  right: 0;
+  bottom: 0;
   background: rgba(255, 255, 255, 0.8);
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   z-index: 1000;
 `;
 
 const LoadingSpinner = styled.div`
-  border: 8px solid rgba(0, 0, 0, 0.1);
-  border-left-color: #6a1b9a;
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-left: 4px solid #6a1b9a;
   border-radius: 50%;
   width: 50px;
   height: 50px;
   animation: ${spin} 1s linear infinite;
 `;
 const Span = styled.span`
- color : green;
+color : green;
 `;
 export default Verification;
