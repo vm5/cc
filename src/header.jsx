@@ -39,18 +39,19 @@ const slideRightToLeft = keyframes`
 const SlidingDiv = styled.div`
   position: absolute;
   top: 0;
-  right: 0;
+  left: 0; /* Changed from right to left for better mobile positioning */
   width: 100%;
   overflow: hidden;
-  background-color: red; /* background color for the sliding text container */
-
+  background-color: red;
+  font-family: 'Verdana';
+ 
 `;
 
 const SlidingText = styled.span`
   display: inline-block;
   animation: ${slideRightToLeft} 15s linear infinite;
   color: white;
-  font-size: 16px;
+  font-size: 14px; /* Adjusted font size for smaller screens */
   white-space: nowrap;
   font-family: 'Verdana';
 `;
@@ -63,12 +64,12 @@ const HeaderContainer = styled.header`
   background: black;
   border-bottom: 2px solid #3399ff;
   font-size: 2rem;
-  font-family: 'Coneria';
+  font-family: 'Veradna';
   color: #003366;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   position: relative;
   animation: ${fadeIn} 2.5s ease-in-out;
-  text-align: center; /* Centered text for better alignment */
+  text-align: center;
 
   @media (max-width: 768px) {
     font-size: 1.5rem;
@@ -76,7 +77,7 @@ const HeaderContainer = styled.header`
   }
 
   @media (max-width: 480px) {
-    font-size: 1rem;
+    font-size: 1.2rem; /* Adjusted font size for smaller screens */
     padding: 10px;
     width: 100%;
   }
@@ -89,7 +90,7 @@ const HeaderContent = styled.div`
   width: 100%;
   padding-bottom: 20px;
 
-  @media (min-width: 768px) {
+  @media (max-width: 768px) {
     flex-direction: column;
     align-items: center;
   }
@@ -100,24 +101,24 @@ const LogoContainer = styled.div`
   align-items: center;
   margin-bottom: 10px;
 
-  @media (min-width: 768px) {
-    margin-bottom: 0;
+  @media (max-width: 768px) {
+    margin-bottom: 10px; /* Adjusted margin for mobile */
   }
 `;
 
 const StyledLogo = styled.img`
-  width: 150px; 
+  width: 120px; /* Reduced size for better fit on small screens */
   height: auto;
-  margin: 45px;
+  margin: 40px; /* Reduced margin for mobile */
 `;
 
 const SlidingHeading = styled.h1`
   animation: ${slideDown} 3s ease-out;
   font-family: 'Verdana';
   color: grey;
-  margin-bottom: 20px; /* Corrected margin value */
+  margin-bottom: 20px;
   text-align: center;
-  font-size: 2rem;
+  font-size: 1.8rem; /* Adjusted font size for mobile */
   font-weight: bold;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 
@@ -138,7 +139,9 @@ const NavLinks = styled.div`
   margin-top: 10px;
   font-family: 'Helvetica';
   display: flex;
-  gap: 20px; /* Increased spacing between links */
+  flex-wrap: wrap; /* Added flex-wrap for better wrapping on small screens */
+  gap: 15px; /* Adjusted spacing between links */
+  justify-content: center; /* Centered the nav links */
 
   a {
     display: flex;
@@ -146,18 +149,14 @@ const NavLinks = styled.div`
     text-decoration: none;
     font-weight: normal;
     color: lightblue;
-    font-size: 18px; /* Increased font size for better visibility */
+    font-size: 14px; /* Adjusted font size for mobile */
     transition: color 0.3s;
-    padding: 10px; /* Added padding for better click area and spacing */
-
-    &:hover {
-      color: #ff6f00;
-    }
-
+    padding: 5px; /* Adjusted padding for mobile */
+    
     img {
-      width: 30px; /* Increased size of icons */
+      width: 24px; /* Adjusted size of icons for mobile */
       height: auto;
-      margin-right: 12px; /* Space between icon and text */
+      margin-right: 8px; /* Reduced space between icon and text */
     }
   }
 `;
@@ -168,7 +167,6 @@ const Header = () => {
       top: document.body.scrollHeight,
       behavior: 'smooth',
     });
-    
   };
 
   return (
